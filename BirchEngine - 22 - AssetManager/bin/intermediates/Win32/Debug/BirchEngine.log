@@ -1,0 +1,24 @@
+﻿  AssetManager.cpp
+  Collision.cpp
+  Constants.cpp
+  ECS.cpp
+  Game.cpp
+c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\ecs\ecs.h(117): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+  c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\game.cpp(71): note: see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,Vector2D,int,int,int>(int &&,int &&,Vector2D &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              T=TransformComponent
+          ]
+  GameObject.cpp
+  main.cpp
+  Map.cpp
+c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\map.cpp(59): warning C4101: 'srcY': unreferenced local variable
+c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\map.cpp(59): warning C4101: 'srcX': unreferenced local variable
+  TextureManager.cpp
+  Vector2D.cpp
+  Generating Code...
+  BirchEngine.vcxproj -> C:\Users\Spencer\Documents\GitHub\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\bin\Win32\Debug\BirchEngine.exe
