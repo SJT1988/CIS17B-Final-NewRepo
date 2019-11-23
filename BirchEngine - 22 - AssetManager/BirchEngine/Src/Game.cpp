@@ -6,6 +6,8 @@
 #include "Collision.h"
 #include "AssetManager.h"
 #include "Constants.h"
+#include <cstdlib>
+#include <ctime>
 
 Map* sceneMap;
 Manager manager;
@@ -18,7 +20,7 @@ AssetManager* Game::assets = new AssetManager(&manager);
 bool Game::isRunning = false;
 
 auto& player(manager.addEntity());
-auto& monster(manager.addEntity());
+//auto& monster(manager.addEntity());
 
 Vector2D playerPosition;
 
@@ -31,6 +33,8 @@ Game::~Game()
 
 void Game::init(const char* title, int width, int height, bool fullscreen)
 {
+	srand(static_cast<unsigned>(time(NULL)));
+
 	int flags = 0;
 	
 	if (fullscreen)
@@ -77,12 +81,14 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	
 	playerPosition = player.getComponent<TransformComponent>().position;
 
-	monster.addComponent<TransformComponent>(5 * TILE_SIZE - 16, 7 * TILE_SIZE - 16, 64, 64, 1);  // (5 * TILE_SIZE, 2 * TILE_SIZE); 
-	monster.addComponent<SpriteComponent>("monster", true);
-	monster.getComponent<SpriteComponent>().animIndex = 0;
-	monster.getComponent<SpriteComponent>().Play("MonsterWalk");
-	monster.addComponent<ColliderComponent>("monster", 20, 20, 24, 24);
-	monster.addGroup(groupMonsters);
+
+	//makes spiders of random size from 50% to 150% scale
+	for (int i = 0; i < 3; i++)	{
+		float temp = .2 + (static_cast<float>(rand())) / (static_cast<float>(RAND_MAX / (1.5 - .2)));
+		assets->CreateSpider(rand()% - 200, rand() % 100, temp);
+	}
+
+	
 
 	// fx map/overlays:
 	sceneMap->LoadMap("Assets/map01FX.map", 11, 11, groupMapFX);
@@ -115,6 +121,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
+	srand(static_cast<unsigned>(time(NULL)));
 
 	manager.refresh();
 	manager.update();
@@ -149,14 +156,44 @@ void Game::update()
 		}
 	}
 
+	
 	for (auto& m : monsters)
 	{
+		float speedLo = m->getComponent<TransformComponent>().speedLo;
+		float speedHi = m->getComponent<TransformComponent>().speedHi;
+		
+		//jitters the speed
+		m->getComponent<TransformComponent>().speed =
+			speedLo + (static_cast<float>(rand())) /
+			(static_cast<float>(RAND_MAX / (speedHi - speedLo)));
+
 		SDL_Rect mCollider = m->getComponent<ColliderComponent>().collider;
 		if (Collision::AABB(mCollider, playerCollider))
 		{
 			// We probably want the spiders to be able to overlap player
 			std::cout << "Don't get up in that spider's business!" << std::endl;
 		}
+
+		//movement of enemies
+		//simple tracking algorithm
+		// hunter velocity changes based on the player's relative position
+		//if player is to the U/D/L/R, move U/D/L/R
+		if (player.getComponent<TransformComponent>().position.x <
+			m->getComponent<TransformComponent>().position.x) {
+			m->getComponent<TransformComponent>().velocity.x = -1;
+		} else {
+				m->getComponent<TransformComponent>().velocity.x = 1;
+		}
+
+		if (player.getComponent<TransformComponent>().position.y <
+			m->getComponent<TransformComponent>().position.y){
+				m->getComponent<TransformComponent>().velocity.y = - 1;
+		} else {
+				m->getComponent<TransformComponent>().velocity.y = 1;
+		}
+
+
+
 	}
 
 	// handle projectile collsions
