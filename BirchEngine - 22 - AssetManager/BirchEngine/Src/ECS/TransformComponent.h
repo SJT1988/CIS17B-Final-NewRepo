@@ -1,7 +1,6 @@
 #pragma once
 #include "Components.h"
 #include "../Vector2D.h"
-
 #include "Constants.h"
 
 class TransformComponent : public Component
@@ -14,16 +13,19 @@ public:
 
 	int height = TILE_SIZE;
 	int width = TILE_SIZE;
-	int scale = 1;
+	float scale = 1;
 
-	int speed = 3;
+
+	float speed = 3;
+	float speedLo = NULL;
+	float speedHi = NULL;
 
 	TransformComponent()
 	{
 		position.Zero();
 	}
 
-	TransformComponent(int sc)
+	TransformComponent(float sc)
 	{
 		position.Zero();
 		scale = sc;
@@ -36,7 +38,7 @@ public:
 	}
 
 	// overrides position, dimensions and scale
-	TransformComponent(float x, float y, int h, int w, int sc)
+	TransformComponent(float x, float y, int h, int w, float sc)
 	{
 		position.x = x;
 		position.y = y;
@@ -45,7 +47,7 @@ public:
 		scale = sc;
 	}
 
-	TransformComponent(float x, float y, Vector2D direction, int h, int w, int sc)
+	TransformComponent(float x, float y, Vector2D direction, int h, int w, float sc)
 	{
 		position.x = x;
 		position.y = y;

@@ -21,6 +21,21 @@ void AssetManager::CreateProjectile(Vector2D pos, Vector2D vel, int rng, int sp,
 
 }
 
+
+void AssetManager::CreateSpider(float x, float y, float s) {
+	auto& monster(manager->addEntity());
+	monster.addComponent<TransformComponent>(x, y, 64, 64, s);  // (5 * TILE_SIZE, 2 * TILE_SIZE);
+	monster.getComponent<TransformComponent>().speed = 2.5;
+	monster.getComponent<TransformComponent>().speedLo = 1.0;
+	monster.getComponent<TransformComponent>().speedHi = 3.5;
+	monster.addComponent<SpriteComponent>("monster", true);
+	monster.getComponent<SpriteComponent>().animIndex = 0;
+	monster.getComponent<SpriteComponent>().Play("MonsterWalk");
+	monster.addComponent<ColliderComponent>("monster", 20*s, 20*s, 24*s, 24*s);
+	monster.addGroup(Game::groupMonsters);
+}
+
+
 void AssetManager::AddTexture(std::string id, const char * path)
 {
 	// Load texture will return an SDL pointer to the texture file

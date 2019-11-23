@@ -23,6 +23,8 @@ public:
 		texID := textureID for projectile's texture
 	*/
 	void CreateProjectile(Vector2D pos, Vector2D vel, int rng, int sp, std::string texID);
+	//init_x, init_y, scale
+	void AssetManager::CreateSpider(float x, float y, float s);
 
 	// Texture Management
 	void AddTexture(std::string id, const char * path);

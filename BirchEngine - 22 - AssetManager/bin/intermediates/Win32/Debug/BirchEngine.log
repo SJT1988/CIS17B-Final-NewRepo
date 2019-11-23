@@ -1,24 +1,17 @@
-﻿  AssetManager.cpp
-  Collision.cpp
-  Constants.cpp
-  ECS.cpp
-  Game.cpp
-c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\ecs\ecs.h(117): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-  c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\game.cpp(71): note: see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,Vector2D,int,int,int>(int &&,int &&,Vector2D &&,int &&,int &&,int &&)' being compiled
-          with
-          [
-              T=TransformComponent
-          ]
-  GameObject.cpp
-  main.cpp
-  Map.cpp
-c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\map.cpp(59): warning C4101: 'srcY': unreferenced local variable
-c:\users\spencer\documents\github\cis17b-final-newrepo\birchengine - 22 - assetmanager\birchengine\src\map.cpp(59): warning C4101: 'srcX': unreferenced local variable
-  TextureManager.cpp
-  Vector2D.cpp
-  Generating Code...
-  BirchEngine.vcxproj -> C:\Users\Spencer\Documents\GitHub\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\bin\Win32\Debug\BirchEngine.exe
+﻿  Game.cpp
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\SpriteComponent.h(118,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\SpriteComponent.h(119,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(87,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(88,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(88,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\ECS.h(117,33): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\ECS.h(117,33): warning C4244:         with
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\ECS.h(117,33): warning C4244:         [
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\ECS.h(117,33): warning C4244:             _Ty=int
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\ECS\ECS.h(117,33): warning C4244:         ]
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(75): message : see reference to function template instantiation 'T &Entity::addComponent<TransformComponent,int,int,Vector2D,int,int,int>(int &&,int &&,Vector2D &&,int &&,int &&,int &&)' being compiled
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(75): message :         with
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(75): message :         [
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(75): message :             T=TransformComponent
+C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\BirchEngine\Src\Game.cpp(75): message :         ]
+  BirchEngine.vcxproj -> C:\Users\xion\Desktop\CIS17B-Final-NewRepo\BirchEngine - 22 - AssetManager\bin\Win32\Debug\BirchEngine.exe

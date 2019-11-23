@@ -73,6 +73,6 @@ public:
 		// | $$$ UNCOMMENT THIS TO SEE THE COLLIDERS $$$ |
 		// +---------------------------------------------+
 		// This line must be uncommented to see ANY colliders at all
-		// TextureManager::Draw(texture, srcRect, destRect, SDL_FLIP_NONE);
+		TextureManager::Draw(texture, srcRect, destRect, SDL_FLIP_NONE);
 	}
 };
